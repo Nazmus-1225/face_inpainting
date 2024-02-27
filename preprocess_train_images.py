@@ -19,7 +19,7 @@ import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
 
 
-from tensorflow.contrib.learn.python.learn.datasets import mnist
+from tf.contrib.learn.python.learn.datasets import mnist
 
 FLAGS = None
 
