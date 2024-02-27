@@ -140,7 +140,7 @@ if __name__ =='__main__':
     
     detector = dlib.get_frontal_face_detector()
     predictor = dlib.shape_predictor(predictor_path)
-    images_dir_path = 'data/train/images/'
+    images_dir_path = '/kaggle/working/test/'
 
     face_image_list = os.listdir(images_dir_path)  # dir of extracted faces
     counter = 0
