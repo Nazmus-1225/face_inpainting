@@ -14,8 +14,7 @@ import numpy as np
 import collections
 from imutils import face_utils
 import cv2
-from scipy.misc import imsave, imresize
-
+from scipy.misc import imresize
 import tensorflow as tf
 
 from tensorflow.contrib.learn.python.learn.datasets import mnist
