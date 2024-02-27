@@ -15,7 +15,9 @@ import collections
 from imutils import face_utils
 import cv2
 from skimage import transform
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+
 
 from tensorflow.contrib.learn.python.learn.datasets import mnist
 
