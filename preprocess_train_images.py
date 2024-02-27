@@ -145,7 +145,7 @@ if __name__ =='__main__':
 
     image_list, landmark_list = [], []
     tfrecord_ind = 0
-
+    face_image_list.remove("116329.jpg")
     for imgs in face_image_list:
         print(imgs)
         counter += 1
