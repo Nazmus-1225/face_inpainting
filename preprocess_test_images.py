@@ -14,7 +14,7 @@ import numpy as np
 import collections
 from imutils import face_utils
 import cv2
-from scipy.misc import imsave, imresize
+from scipy.misc import imresize
 
 import tensorflow as tf
 
@@ -126,5 +126,5 @@ if __name__ =='__main__':
             key_point_matrix = key_point_matrix[d.top():d.bottom(), d.left():d.right()]
             key_point_matrix = imresize(key_point_matrix, [128,128])
 
-            imsave('test_images/img' + str(counter) + '.png', face_part)
-            imsave('test_images/ky' + str(counter) + '.png', key_point_matrix)
+            io.imsave('test_images/img' + str(counter) + '.png', face_part)
+            io.imsave('test_images/ky' + str(counter) + '.png', key_point_matrix)
