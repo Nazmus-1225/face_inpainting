@@ -147,6 +147,7 @@ if __name__ =='__main__':
     tfrecord_ind = 0
 
     for imgs in face_image_list:
+        print(imgs)
         counter += 1
 
         filename = os.path.join(images_dir_path, imgs) 
