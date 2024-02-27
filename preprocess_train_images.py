@@ -134,7 +134,7 @@ if __name__ =='__main__':
 
     predictor_path = sys.argv[1]
     
-    save_path = 'train_records/'
+    save_path = '/kaggle/working/train_records/'
     
     detector = dlib.get_frontal_face_detector()
     predictor = dlib.shape_predictor(predictor_path)
