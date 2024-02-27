@@ -18,9 +18,6 @@ from skimage import transform
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
 
-
-from tf.contrib.learn.python.learn.datasets import mnist
-
 FLAGS = None
 
 # define a dictionary that maps the indexes of the facial
