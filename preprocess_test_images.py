@@ -14,7 +14,7 @@ import numpy as np
 import collections
 from imutils import face_utils
 import cv2
-from scipy.misc import imresize
+from skimage import transform
 
 import tensorflow as tf
 
@@ -120,11 +120,11 @@ if __name__ =='__main__':
             shape = face_utils.shape_to_np(shape)
      
             face_part = img[d.top():d.bottom(), d.left():d.right()]
-            face_part = imresize(face_part, [128,128])
+            face_part = transform.resize(face_part, [128,128])
 
             key_point_matrix = visualize_facial_landmarks(img, shape)
             key_point_matrix = key_point_matrix[d.top():d.bottom(), d.left():d.right()]
-            key_point_matrix = imresize(key_point_matrix, [128,128])
+            key_point_matrix = transform.resize(key_point_matrix, [128,128])
 
             io.imsave('test_images/img' + str(counter) + '.png', face_part)
             io.imsave('test_images/ky' + str(counter) + '.png', key_point_matrix)
