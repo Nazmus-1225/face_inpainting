@@ -168,10 +168,10 @@ if __name__ =='__main__':
             shape = face_utils.shape_to_np(shape)
      
             face_part = img[d.top():d.bottom(), d.left():d.right()]
-            face_part = transform.resize(face_part, [128,128])
             if 0 in face_part.shape:
                 print(imgs)
             else:
+                face_part = transform.resize(face_part, [128,128])
                 key_point_matrix = visualize_facial_landmarks(img, shape)
                 key_point_matrix = key_point_matrix[d.top():d.bottom(), d.left():d.right()]
                 key_point_matrix = transform.resize(key_point_matrix, [128,128])
