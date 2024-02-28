@@ -179,9 +179,5 @@ if __name__ =='__main__':
                 image_list.append(face_part)
                 landmark_list.append(key_point_matrix)
 
-            if len(image_list) == 10000:
-                convert_to(np.asarray(image_list), np.asarray(landmark_list), 'celebA_' + str(tfrecord_ind))
-                image_list, landmark_list = [], []
-                tfrecord_ind += 1
         
-    convert_to(np.asarray(image_list), np.asarray(landmark_list), 'celebA_' + str(tfrecord_ind))
+    convert_to(np.asarray(image_list), np.asarray(landmark_list), 'celebA_final' )
