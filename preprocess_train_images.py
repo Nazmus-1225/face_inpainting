@@ -6,8 +6,7 @@ import argparse
 import os
 import sys
 import dlib
-import glob
-import h5py
+
 from skimage import io
 import time
 import numpy as np
@@ -145,11 +144,8 @@ if __name__ =='__main__':
 
     image_list, landmark_list = [], []
     tfrecord_ind = 0
-    face_image_list.remove("116329.jpg")
-    face_image_list.remove("107556.jpg")
-    face_image_list.remove("153126.jpg")
+
     for imgs in face_image_list:
-        print(imgs)
         if(counter%1000==0):
             print(counter)
         counter += 1
@@ -173,13 +169,15 @@ if __name__ =='__main__':
      
             face_part = img[d.top():d.bottom(), d.left():d.right()]
             face_part = transform.resize(face_part, [128,128])
+            if 0 in face_part.shape:
+                print(imgs)
+            else:
+                key_point_matrix = visualize_facial_landmarks(img, shape)
+                key_point_matrix = key_point_matrix[d.top():d.bottom(), d.left():d.right()]
+                key_point_matrix = transform.resize(key_point_matrix, [128,128])
 
-            key_point_matrix = visualize_facial_landmarks(img, shape)
-            key_point_matrix = key_point_matrix[d.top():d.bottom(), d.left():d.right()]
-            key_point_matrix = transform.resize(key_point_matrix, [128,128])
-
-            image_list.append(face_part)
-            landmark_list.append(key_point_matrix)
+                image_list.append(face_part)
+                landmark_list.append(key_point_matrix)
 
             if len(image_list) == 10000:
                 convert_to(np.asarray(image_list), np.asarray(landmark_list), 'celebA_' + str(tfrecord_ind))
