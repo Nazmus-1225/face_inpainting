@@ -58,11 +58,11 @@ if dataset == 'celebA':
 else:
   flags.DEFINE_string("data_dir", "data/" + dataset,
                     "Directory name containing the dataset [data]")
-flags.DEFINE_string("checkpoint_dir", "checkpoint/" + dataset + "/" + comment,
+flags.DEFINE_string("checkpoint_dir", "/kaggle/working/checkpoint/" + dataset + "/" + comment,
                     "Directory name to save the checkpoints [checkpoint]")
-flags.DEFINE_string("sample_dir", "samples/" + dataset,
+flags.DEFINE_string("sample_dir", "/kaggle/working/sample" + dataset,
                     "Directory name to save the image samples [samples]")
-flags.DEFINE_string("log_dir", "logs/" + dataset + "/" + comment,
+flags.DEFINE_string("log_dir", "/kaggle/working/logs" + dataset + "/" + comment,
                     "Directory name to save the logs [logs]")
 flags.DEFINE_boolean("load_chkpt", False, "True for loading saved checkpoint")
 flags.DEFINE_boolean("inc_score", False, "True for computing inception score")
