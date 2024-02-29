@@ -52,7 +52,7 @@ flags.DEFINE_boolean("policy_train", True,
 flags.DEFINE_string("dataset", dataset,
                     "The name of dataset [celebA, mnist, lsun]")
 if dataset == 'celebA':
-  flags.DEFINE_string("data_dir", "data/",
+  flags.DEFINE_string("data_dir", "/kaggle/working/",
                     "Directory name containing the dataset [data]")
 else:
   flags.DEFINE_string("data_dir", "data/" + dataset,
@@ -90,6 +90,8 @@ def main(_):
         os.makedirs(FLAGS.checkpoint_dir)
     if not os.path.exists(FLAGS.sample_dir):
         os.makedirs(FLAGS.sample_dir)
+    if not os.path.exists(FLAGS.log_dir):
+        os.makedirs(FLAGS.log_dir)
 
     gpu_options = tf.GPUOptions(
         per_process_gpu_memory_fraction=FLAGS.gpu_frac)
