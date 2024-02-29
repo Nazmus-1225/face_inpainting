@@ -40,10 +40,10 @@ class dataset(object):
 		    print(F.dataset)
     def batch(self):
         if F.dataset != 'lsun' and F.dataset != 'celebA':
-            print "Inside batch size!!!"
+            print ("Inside batch size!!!")
             self.num_batches = len(self.data) // F.batch_size
-            print "Total number of train", len(self.data)
-            print "Total number of test:", len(self.data_unlabelled)
+            print (f"Total number of train {len(self.data)}")
+            print (f"Total number of test: {len(self.data_unlabelled)}")
             for i in range(self.num_batches):
                 start, end = i * F.batch_size, (i + 1) * F.batch_size
                 yield self.data[start:end], self.labels[start:end] , self.data_unlabelled[start:end]
