@@ -2,7 +2,7 @@ import math
 import numpy as np
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
-
+import tensorflow_addons as tfa
 
 from tensorflow.python.framework import ops
 
@@ -18,7 +18,7 @@ class batch_norm(object):
       self.name = name
 
   def __call__(self, x, train=True):
-    return tf.layers.batch_normalization(x,
+    return tfa.layers.batch_norm(x,
                       decay=self.momentum, 
                       updates_collections=None,
                       epsilon=self.epsilon,
