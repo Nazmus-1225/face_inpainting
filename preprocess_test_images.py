@@ -133,7 +133,7 @@ if __name__ =='__main__':
                 key_point_matrix = key_point_matrix[d.top():d.bottom(), d.left():d.right()]
                 key_point_matrix = transform.resize(key_point_matrix, [128,128])
                 print(face_part.shape)
-                print(face_part.astype)
+                print(face_part.dtype)
 
                 io.imsave('/kaggle/working/test_images/img' + str(counter) + '.png', face_part)
                 io.imsave('/kaggle/working/test_images/ky' + str(counter) + '.png', key_point_matrix)
