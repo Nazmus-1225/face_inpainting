@@ -18,13 +18,13 @@ class batch_norm(object):
       self.name = name
 
   def __call__(self, x, train=True):
-    return tfa.layers.batch_norm(x,
-                      decay=self.momentum, 
-                      updates_collections=None,
+    return tfa.layers.batch_normalization(x,
+                      momentum=self.momentum, 
                       epsilon=self.epsilon,
                       scale=True,
-                      is_training=train,
-                      scope=self.name)
+                      training=train,
+                      trainable=train,
+                      name=self.name)
 
 def minibatch_disc(input, num_kernels=10, kernel_size=5, scope="m_bat"):
     '''
