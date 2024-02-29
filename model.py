@@ -12,8 +12,7 @@ tf.disable_v2_behavior()
 
 import poissonblending
 from six.moves import xrange
-from skimage.measure import compare_psnr
-from skimage.measure import compare_mse
+from skimage.metrics import peak_signal_noise_ratio, mean_squared_error
 
 F = tf.app.flags.FLAGS
 
@@ -226,10 +225,10 @@ class ECGAN(object):
         return out.astype(np.float32)
 
     def get_psnr(self, img_true, img_gen):
-        return compare_psnr(img_true.astype(np.float32), img_gen.astype(np.float32))
+        return peak_signal_noise_ratio(img_true.astype(np.float32), img_gen.astype(np.float32))
 
     def get_mse(self, img_true, img_gen):
-        return compare_mse(img_true.astype(np.float32), img_gen.astype(np.float32))
+        return mean_squared_error(img_true.astype(np.float32), img_gen.astype(np.float32))
 
     def same_z_diff_keypoints(self):
         # call this while trying to show generated samples for same z-vector but different 
