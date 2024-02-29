@@ -62,7 +62,7 @@ flags.DEFINE_string("checkpoint_dir", "/kaggle/working/checkpoint/" + dataset + 
                     "Directory name to save the checkpoints [checkpoint]")
 flags.DEFINE_string("sample_dir", "/kaggle/working/sample" + dataset,
                     "Directory name to save the image samples [samples]")
-flags.DEFINE_string("log_dir", "/kaggle/working/logs" + dataset + "/" + comment,
+flags.DEFINE_string("logs_dir", "/kaggle/working/logs" + dataset + "/" + comment,
                     "Directory name to save the logs [logs]")
 flags.DEFINE_boolean("load_chkpt", False, "True for loading saved checkpoint")
 flags.DEFINE_boolean("inc_score", False, "True for computing inception score")
@@ -86,13 +86,6 @@ FLAGS = flags.FLAGS
 
 def main(_):
     pp.pprint(flags.FLAGS.__flags)
-
-    if not os.path.exists(FLAGS.checkpoint_dir):
-        os.makedirs(FLAGS.checkpoint_dir)
-    if not os.path.exists(FLAGS.sample_dir):
-        os.makedirs(FLAGS.sample_dir)
-    if not os.path.exists(FLAGS.log_dir):
-        os.makedirs(FLAGS.log_dir)
 
     gpu_options = tf.GPUOptions(
         per_process_gpu_memory_fraction=FLAGS.gpu_frac)
