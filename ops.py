@@ -18,10 +18,11 @@ class batch_norm(object):
       self.name = name
 
   def __call__(self, x, train=True):
-    return tf.keras.layers.BatchNormalization(x,
+    return tf.keras.layers.BatchNormalization(
+                      axis=1,
                       momentum=self.momentum, 
                       epsilon=self.epsilon,
-                      scale=True)
+                      scale=True)(x)
 
 def minibatch_disc(input, num_kernels=10, kernel_size=5, scope="m_bat"):
     '''
