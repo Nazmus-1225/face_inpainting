@@ -97,6 +97,7 @@ if __name__ =='__main__':
     detector = dlib.get_frontal_face_detector()
     predictor = dlib.shape_predictor(predictor_path)
     images_dir_path = '/kaggle/working/test/'
+    test_dir_path = '/kaggle/working/test_images/'
 
     face_image_list = os.listdir(images_dir_path)  # dir of extracted faces
     counter = 0
@@ -132,8 +133,6 @@ if __name__ =='__main__':
                 key_point_matrix = visualize_facial_landmarks(img, shape)
                 key_point_matrix = key_point_matrix[d.top():d.bottom(), d.left():d.right()]
                 key_point_matrix = transform.resize(key_point_matrix, [128,128])
-                print(face_part.shape)
-                print(face_part.dtype)
 
-                io.imsave('/kaggle/working/test_images/img' + str(counter) + '.png', (face_part * 255).astype(np.uint8))
-                io.imsave('/kaggle/working/test_images/ky' + str(counter) + '.png', (key_point_matrix * 255).astype(np.uint8))
+                io.imsave(test_dir_path+'img' + str(counter) + '.png', (face_part * 255).astype(np.uint8))
+                io.imsave(test_dir_path+'ky' + str(counter) + '.png', (key_point_matrix * 255).astype(np.uint8))
