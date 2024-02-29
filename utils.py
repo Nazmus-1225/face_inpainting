@@ -35,14 +35,7 @@ def imread(path, is_grayscale=False):
 
 class dataset(object):
     def __init__(self):
-        if F.dataset == 'mnist':
-            self.data = load_mnist()
-        elif F.dataset == 'lsun':
-            self.data = lmdb.open(F.data_dir, map_size=500000000000,  # 500 gigabytes
-                                  max_readers=100, readonly=True)
-        elif F.dataset == 'cifar':
-            self.data, self.labels, self.data_unlabelled = load_cifar()
-	elif F.dataset == 'celebA':
+        if F.dataset == 'celebA':
 	    self.data = load_celebA()
         else:
             raise NotImplementedError("Does not support dataset {}".format(F.dataset))
