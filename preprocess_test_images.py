@@ -123,10 +123,10 @@ if __name__ =='__main__':
             shape = predictor(img, d)
             shape = face_utils.shape_to_np(shape)
 
+            face_part = img[d.top():d.bottom(), d.left():d.right()]
             if 0 in face_part.shape:
                 print(imgs)
             else:
-                face_part = img[d.top():d.bottom(), d.left():d.right()]
                 face_part = transform.resize(face_part, [128,128])
             
                 key_point_matrix = visualize_facial_landmarks(img, shape)
