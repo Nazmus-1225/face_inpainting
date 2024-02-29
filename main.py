@@ -85,7 +85,7 @@ flags.DEFINE_integer("output_size", 64, "True for grayscale image")
 FLAGS = flags.FLAGS
 
 def main(_):
-    pp.pprint(flags.FLAGS.__flags)
+    #pp.pprint(flags.FLAGS.__flags)
 
     gpu_options = tf.GPUOptions(
         per_process_gpu_memory_fraction=FLAGS.gpu_frac)
