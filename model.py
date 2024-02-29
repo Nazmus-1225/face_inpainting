@@ -6,8 +6,9 @@ import reader
 import random
 from ops import *
 import scipy.misc
-import numpy as np
-import tensorflow as tf
+import numpy as npimport tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+
 import poissonblending
 from six.moves import xrange
 from skimage.measure import compare_psnr
