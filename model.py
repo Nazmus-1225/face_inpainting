@@ -131,7 +131,7 @@ class ECGAN(object):
         step = 1
         idx = 1
 
-        writer = tf.summary.FileWriter(F.log_dir, graph=tf.get_default_graph())
+        writer = tf.summary.FileWriter(F.logs_dir, graph=tf.get_default_graph())
 
         # Start input enqueue threads.
         coord = tf.train.Coordinator()
