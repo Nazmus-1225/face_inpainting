@@ -72,7 +72,7 @@ class dataset(object):
         else:
           f = h5py.File("face_annotation.hdf5", "r")
           self.num_batches = len(self.data)// F.batch_size
-          print "**************Number of batches will be ::", self.num_batches
+          print (f"**************Number of batches will be :: {self.num_batches}")
           
           for i in range(self.num_batches): 
             sub_list = self.data[i * F.batch_size:(i + 1) * F.batch_size] 
@@ -90,7 +90,7 @@ class dataset(object):
 
 def load_celebA():
   file_list = os.listdir(F.data_dir)
-  print "Total images found: ", len(file_list)
+  print (f"Total images found:  {len(file_list)}")
 
 def merge_images(images, size):
     return inverse_transform(images)
