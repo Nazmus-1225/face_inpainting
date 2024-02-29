@@ -6,7 +6,8 @@ import reader
 import random
 from ops import *
 import scipy.misc
-import numpy as npimport tensorflow.compat.v1 as tf
+import numpy as np
+import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
 
 import poissonblending
