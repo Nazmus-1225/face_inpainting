@@ -103,6 +103,8 @@ if __name__ =='__main__':
 
     for imgs in face_image_list:
         counter += 1
+        if(counter%50==0):
+            print(counter)
 
         filename = os.path.join(images_dir_path, imgs) 
           
