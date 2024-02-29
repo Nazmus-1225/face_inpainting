@@ -69,7 +69,7 @@ flags.DEFINE_boolean("gauss_noise", False, "True for adding noise to disc input"
 flags.DEFINE_boolean("flip_label", False, "True for flipping the labels")
 flags.DEFINE_boolean("error_conceal", False, "True for flipping the labels")
 flags.DEFINE_boolean("siamese_net", False, "True for flipping the labels")
-flags.DEFINE_boolean("use_tfrecords", True, "True for running error concealment part")
+flags.DEFINE_boolean("use_tfrecords", False, "True for running error concealment part")
 
 flags.DEFINE_integer("batch_size", 64, "The size of batch images [64]")
 flags.DEFINE_integer("z_dim", 100, "Dimension of latent vector.")
