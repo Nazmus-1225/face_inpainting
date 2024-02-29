@@ -135,5 +135,5 @@ if __name__ =='__main__':
                 print(face_part.shape)
                 print(face_part.dtype)
 
-                io.imsave('/kaggle/working/test_images/img' + str(counter) + '.png', face_part)
-                io.imsave('/kaggle/working/test_images/ky' + str(counter) + '.png', key_point_matrix)
+                io.imsave('/kaggle/working/test_images/img' + str(counter) + '.png', (face_part * 255).astype(np.uint8))
+                io.imsave('/kaggle/working/test_images/ky' + str(counter) + '.png', (key_point_matrix * 255).astype(np.uint8))
