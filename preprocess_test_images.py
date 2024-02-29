@@ -123,7 +123,7 @@ if __name__ =='__main__':
             shape = predictor(img, d)
             shape = face_utils.shape_to_np(shape)
 
-            if 0 in face_part:
+            if 0 in face_part.shape:
                 print(imgs)
             else:
                 face_part = img[d.top():d.bottom(), d.left():d.right()]
