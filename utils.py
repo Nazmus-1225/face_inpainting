@@ -35,12 +35,9 @@ def imread(path, is_grayscale=False):
 
 class dataset(object):
     def __init__(self):
-        print(F.dataset)
-	if F.dataset == 'celebA':
-		self.data=load_celebA()
-        else:
-            raise NotImplementedError("Does not support dataset {}".format(F.dataset))
-
+	    if F.dataset == 'celebA':
+		    self.data=load_celebA()
+		    print(F.dataset)
     def batch(self):
         if F.dataset != 'lsun' and F.dataset != 'celebA':
             print "Inside batch size!!!"
