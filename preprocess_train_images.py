@@ -171,13 +171,24 @@ if __name__ =='__main__':
             if 0 in face_part.shape:
                 print(imgs)
             else:
+                for k, d in enumerate(dets):
+            # Get the landmarks/parts for the face in box d.
+            shape = predictor(img, d)
+            shape = face_utils.shape_to_np(shape)
+
+            face_part = img[d.top():d.bottom(), d.left():d.right()]
+            if 0 in face_part.shape:
+                print(imgs)
+            else:
                 face_part = transform.resize(face_part, [128,128])
+            
                 key_point_matrix = visualize_facial_landmarks(img, shape)
                 key_point_matrix = key_point_matrix[d.top():d.bottom(), d.left():d.right()]
                 key_point_matrix = transform.resize(key_point_matrix, [128,128])
+                print(face_part.shape)
+                print(face_part.dtype)
 
-                image_list.append(face_part)
-                landmark_list.append(key_point_matrix)
-
+                io.imsave('/kaggle/working/train_images/img' + str(counter) + '.png', (face_part * 255).astype(np.uint8))
+                io.imsave('/kaggle/working/train_images/ky' + str(counter) + '.png', (key_point_matrix * 255).astype(np.uint8))
         
    # convert_to(np.asarray(image_list), np.asarray(landmark_list), 'celebA_final' )
